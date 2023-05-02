@@ -12,7 +12,7 @@ class TechnicalLog(models.Model):
     leg_ids = fields.One2many('aircraft.leg','technical_log_id','Leg')
     crew_ids = fields.One2many('aircraft.crew','technical_log_id', 'Crew')
     engine_usage_ids = fields.One2many('aircraft.engine.usage','technical_log_id', 'Engine Usage')
-    manifest_ids = fields.One2many('aircraft.leg.manifest','technical_log_id', 'Manifest')
+    manifest_ids = fields.One2many('aircraft.leg.manifest', 'technical_log_id', 'Manifest')
 
 
 class TechnicalLogLeg(models.Model):
