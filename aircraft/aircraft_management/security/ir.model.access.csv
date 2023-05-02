@@ -1,9 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_aircraft_fuel_intake_user,access.aircraft.fuel.intake.user,model_aircraft_fuel_intake,base.group_user,1,1,1,1
-access_aircraft_technical_log_user,access.aircraft.technical.log.user,model_aircraft_technical_log,base.group_user,1,1,1,1
-access_aircraft_leg_user,access.aircraft.leg.user,model_aircraft_leg,base.group_user,1,1,1,1
-access_aircraft_details_user,access.aircraft.details.user,model_aircraft_details,base.group_user,1,1,1,1
-access_aircraft_crew_user,access.aircraft.crew.user,model_aircraft_crew,base.group_user,1,1,1,1
-access_aircraft_defect_user,access.aircraft.defect.user,model_aircraft_defect,base.group_user,1,1,1,1
-access_aircraft_engine_usage_user,access.aircraft.engine.usage.user,model_aircraft_engine_usage,base.group_user,1,1,1,1
-access_aircraft_leg_manifest_user,access.aircraft.leg.manifest.user,model_aircraft_leg_manifest,base.group_user,1,1,1,1
