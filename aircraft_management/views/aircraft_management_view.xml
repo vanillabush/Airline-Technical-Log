@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="aircraft_fuel_intake_form_view" model="ir.ui.view">
+        <field name="name">aircraft.fuel.intake.form.view</field>
+        <field name="model">aircraft.fuel.intake</field>
+        <field name="arch" type="xml">
+            <form string="Fuel Intake">
+            <header>
+                <button name="action_submit" type="object" states="draft" string="Request Approval" class="btn-primary" confirm="Are you sure you want to Request for Approval?"/>
+                <button name="action_approve" type="object" states="pending" string="Approve Request" class="btn-primary" confirm="Are you sure you want to Approve this Request?"/>
+                <field name="state" widget="statusbar"/>
+            </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="amount_of_fuel"  required="1"/>
+                            <field name="amount_of_fuel_pounds"/>
+                            <field name="price_per_liter" required="1"/>
+                            <field name="calculate_amount"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_aircraft_fuel_intake" model="ir.ui.view">
+        <field name="name">aircraft.fuel.intake.tree.view</field>
+        <field name="model">aircraft.fuel.intake</field>
+        <field name="arch" type="xml">
+            <tree string="Fuel Intake">
+                <field name="amount_of_fuel"/>
+                <field name="amount_of_fuel_pounds"/>
+                <field name="price_per_liter"/>
+                <field name="calculate_amount"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_filter_aircraft_fuel_intake" model="ir.ui.view">
+        <field name="model">aircraft.fuel.intake</field>
+        <field name="arch" type="xml">
+            <search string="Search Fuel Intake">
+                <field name="amount_of_fuel"/>
+                <field name="amount_of_fuel_pounds"/>
+                <field name="price_per_liter"/>
+                <field name="calculate_amount"/>
+            </search>
+        </field>
+    </record>
+
+        <!-- Technical Log -->
+    <record id="aircraft_technical_log_form_view" model="ir.ui.view">
+        <field name="name">aircraft.technical.log.form.view</field>
+        <field name="model">aircraft.technical.log</field>
+        <field name="arch" type="xml">
+            <form string="Technical Log">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="date" required="1"/>
+                            <field name="aircraft_detail_id" required="1"/>
+                            <field name="captured_by" required='1'/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Aircraft Legs">
+                            <field name="leg_ids"/>
+                        </page>
+                        <page string="Aircraft Crew">
+                            <field name="crew_ids"/>
+                        </page>
+                        <page string="Aircraft Engine Usage">
+                            <field name="engine_usage_ids"/>
+                        </page>
+                        <page string="Aircraft Manifest">
+                            <field name="manifest_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_aircraft_technical_log" model="ir.ui.view">
+        <field name="name">aircraft.technical.log.tree.view</field>
+        <field name="model">aircraft.technical.log</field>
+        <field name="arch" type="xml">
+            <tree string="Technical Log">
+                <field name="date"/>
+                <field name="captured_by"/>
+                <field name="aircraft_detail_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_filter_aircraft_technical_log" model="ir.ui.view">
+        <field name="model">aircraft.technical.log</field>
+        <field name="arch" type="xml">
+            <search string="Search Technical Log">
+                <field name="date"/>
+                <field name="captured_by"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="aircraft_leg_form_view" model="ir.ui.view">
+        <field name="name">aircraft.leg.form.view</field>
+        <field name="model">aircraft.leg</field>
+        <field name="arch" type="xml">
+            <form string="Flight Leg">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="technical_log_id"  required="1"/>
+                            <field name="leg" required="1"/>
+                            <field name="flight_no" required="1"/>
+                            <field name="point_of_departure" required="1"/>
+                            <field name="destination" required="1"/>
+                            <field name="nautical_miles" required="1"/>
+                            <field name="passengers" required="1"/>
+                            <field name="hobbs_time_start" required="1"/>
+                            <field name="hobbs_time_end" required="1"/>
+                            <field name="off_chock_time" required="1"/>
+                            <field name="on_chock_time" required="1"/>
+                            <field name="chock_to_chock_time" required="1"/>
+                            <field name="total_fuel_before" required="1"/>
+                            <field name="total_fuel_before_to_lb" required="1"/>
+                            <field name="total_fuel_after" required="1"/>
+                            <field name="total_fuel_after_to_lb" required="1"/>
+                            <field name="fuel_uplift" required="1"/>
+                            <field name="fuel_type" required="1"/>
+                            <field name="supplier" required="1"/>
+                            <field name="receipt_no" required="1"/>
+                            <field name="apu_hrs" required="1"/>
+                            <field name="oil_uplift_lr" required="1"/>
+                            <field name="hydraulic_uplift" required="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_tree_aircraft_leg" model="ir.ui.view">
+        <field name="name">aircraft.leg.tree.view</field>
+        <field name="model">aircraft.leg</field>
+        <field name="arch" type="xml">
+            <tree string="Flight Leg">
+                <field name="leg"/>
+                <field name="flight_no"/>
+                <field name="point_of_departure"/>
+                <field name="destination"/>
+                <field name="nautical_miles"/>
+                <field name="passengers"/>
+                <field name="total_fuel_before"/>
+                <field name="total_fuel_before_to_lb"/>
+                <field name="total_fuel_after"/>
+                <field name="total_fuel_after_to_lb"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_filter_aircraft_leg" model="ir.ui.view">
+        <field name="model">aircraft.leg</field>
+        <field name="arch" type="xml">
+            <search string="Search Flight Leg">
+                <field name="leg"/>
+                <field name="flight_no"/>
+                <field name="point_of_departure"/>
+                <field name="destination"/>
+                <field name="nautical_miles"/>
+                <field name="passengers"/>
+                <field name="total_fuel_before"/>
+                <field name="total_fuel_before_to_lb"/>
+                <field name="total_fuel_after"/>
+                <field name="total_fuel_after_to_lb"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="aircraft_details_form_view" model="ir.ui.view">
+        <field name="name">aircraft.details.form.view</field>
+        <field name="model">aircraft.details</field>
+        <field name="arch" type="xml">
+            <form string="Aircraft Details">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="registration"/>
+                            <field name="aircraft_type"/>
+                            <field name="serial_no"/>
+                            <field name="flight_date"/>
+                            <field name="next_inspection_type"/>
+                            <field name="airframe_hrs_start"/>
+                            <field name="airframe_hrs_end"/>
+                            <field name="flight_time"/>
+                            <field name="hobbs_start"/>
+                            <field name="hobbs_end"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Aircraft Defects">
+                            <field name="defect_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_aircraft_details" model="ir.ui.view">
+        <field name="name">aircraft.details.tree.view</field>
+        <field name="model">aircraft.details</field>
+        <field name="arch" type="xml">
+            <tree string="Aircraft Details">
+                <field name="registration"/>
+                <field name="aircraft_type"/>
+                <field name="serial_no"/>
+                <field name="flight_date"/>
+                <field name="next_inspection_type"/>
+                <field name="airframe_hrs_start"/>
+                <field name="airframe_hrs_end"/>
+                <field name="flight_time"/>
+                <field name="hobbs_start"/>
+                <field name="hobbs_end"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_filter_aircraft_details" model="ir.ui.view">
+        <field name="model">aircraft.details</field>
+        <field name="arch" type="xml">
+            <search string="Aircraft Details">
+                <field name="registration"/>
+                <field name="aircraft_type"/>
+                <field name="serial_no"/>
+                <field name="flight_date"/>
+                <field name="next_inspection_type"/>
+                <field name="airframe_hrs_start"/>
+                <field name="airframe_hrs_end"/>
+                <field name="flight_time"/>
+                <field name="hobbs_start"/>
+                <field name="hobbs_end"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="aircraft_crew_form_view" model="ir.ui.view">
+        <field name="name">aircraft.crew.form.view</field>
+        <field name="model">aircraft.crew</field>
+        <field name="arch" type="xml">
+            <form string="Aircraft Crew">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="crew_type"/>
+                            <field name="partner_id"/>
+                            <field name="sign_on_time"/>
+                            <field name="sign_off_time"/>
+                            <field name="flight_duty_time"/>
+                            <field name="licence_no"/>
+                            <field name="technical_log_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_aircraft_crew" model="ir.ui.view">
+        <field name="name">aircraft.crew.tree.view</field>
+        <field name="model">aircraft.crew</field>
+        <field name="arch" type="xml">
+            <tree string="Aircraft Crew">
+                <field name="crew_type"/>
+                <field name="partner_id"/>
+                <field name="sign_on_time"/>
+                <field name="sign_off_time"/>
+                <field name="flight_duty_time"/>
+                <field name="licence_no"/>
+                <field name="technical_log_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_filter_aircraft_crew" model="ir.ui.view">
+        <field name="model">aircraft.crew</field>
+        <field name="arch" type="xml">
+            <search string="Aircraft Crew">
+                <field name="crew_type"/>
+                <field name="partner_id"/>
+                <field name="sign_on_time"/>
+                <field name="sign_off_time"/>
+                <field name="flight_duty_time"/>
+                <field name="licence_no"/>
+                <field name="technical_log_id"/>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="aircraft_defect_form_view" model="ir.ui.view">
+        <field name="name">aircraft.defect.form.view</field>
+        <field name="model">aircraft.defect</field>
+        <field name="arch" type="xml">
+            <form string="Aircraft Defect">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="defect"/>
+                            <field name="action_taken"/>
+                            <field name="authorization_no"/>
+                            <field name="date"/>
+                            <field name="aircraft_details_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_aircraft_defect" model="ir.ui.view">
+        <field name="name">aircraft.defect.tree.view</field>
+        <field name="model">aircraft.defect</field>
+        <field name="arch" type="xml">
+            <tree string="Aircraft Defect">
+                <field name="defect"/>
+                <field name="action_taken"/>
+                <field name="authorization_no"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_filter_aircraft_defect" model="ir.ui.view">
+        <field name="model">aircraft.defect</field>
+        <field name="arch" type="xml">
+            <search string="Aircraft Defect">
+                <field name="defect"/>
+                <field name="action_taken"/>
+                <field name="authorization_no"/>
+                <field name="date"/>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="aircraft_engine_usage_form_view" model="ir.ui.view">
+        <field name="name">aircraft.engine.usage.form.view</field>
+        <field name="model">aircraft.engine.usage</field>
+        <field name="arch" type="xml">
+            <form string="Aircraft Engine Usage">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="engine"/>
+                            <field name="engine_hr"/>
+                            <field name="engine_hr_amount"/>
+                            <field name="n1_prop_rpm"/>
+                            <field name="n2_ng"/>
+                            <field name="start"/>
+                            <field name="this_log"/>
+                            <field name="end"/>
+                            <field name="l_r_engine"/>
+                            <field name="landings"/>
+                            <field name="itt"/>
+                            <field name="torque"/>
+                            <field name="fuel_flow"/>
+                            <field name="oil_temp_press"/>
+                            <field name="generator_load"/>
+                            <field name="start_temp"/>
+                            <field name="dor_items"/>
+                            <field name="col_items"/>
+                            <field name="technical_log_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_aircraft_engine_usaget" model="ir.ui.view">
+        <field name="name">aircraft.engine.usage.tree.view</field>
+        <field name="model">aircraft.engine.usage</field>
+        <field name="arch" type="xml">
+            <tree string="Aircraft Engine Usage">
+                <field name="engine"/>
+                <field name="engine_hr"/>
+                <field name="engine_hr_amount"/>
+                <field name="n1_prop_rpm"/>
+                <field name="n2_ng"/>
+                <field name="start"/>
+                <field name="this_log"/>
+                <field name="end"/>
+                <field name="l_r_engine"/>
+                <field name="landings"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_filter_aircraft_engine_usage" model="ir.ui.view">
+        <field name="model">aircraft.engine.usage</field>
+        <field name="arch" type="xml">
+            <search string="Aircraft Engine Usage">
+                <field name="engine"/>
+                <field name="engine_hr"/>
+                <field name="engine_hr_amount"/>
+                <field name="n1_prop_rpm"/>
+                <field name="n2_ng"/>
+                <field name="start"/>
+                <field name="this_log"/>
+                <field name="end"/>
+                <field name="l_r_engine"/>
+                <field name="landings"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="aircraft_leg_manifest_form_view" model="ir.ui.view">
+        <field name="name">aircraft.leg.manifest.form.view</field>
+        <field name="model">aircraft.leg.manifest</field>
+        <field name="arch" type="xml">
+            <form string="Aircraft Manifest">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="technical_log_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_aircraft_leg_manifest" model="ir.ui.view">
+        <field name="name">aircraft.leg.manifest.tree.view</field>
+        <field name="model">aircraft.leg.manifest</field>
+        <field name="arch" type="xml">
+            <tree string="Aircraft Manifest">
+                <field name="partner_id"/>
+                <field name="technical_log_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_filter_aircraft_leg_manifest" model="ir.ui.view">
+        <field name="model">aircraft.leg.manifest</field>
+        <field name="arch" type="xml">
+            <search string="Aircraft Manifest">
+                <field name="partner_id"/>
+                <field name="technical_log_id"/>
+            </search>
+        </field>
+    </record>
+</odoo>
