@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="action_fuel_intake" model="ir.actions.act_window">
+        <field name="name">Fuel Intake</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">aircraft.fuel.intake</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Fuel Intake
+            </p>
+        </field>
+    </record>
+    <record id="action_aircraft_technical_log" model="ir.actions.act_window">
+        <field name="name">Technical Log</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">aircraft.technical.log</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Technical Log
+            </p>
+        </field>
+    </record>
+    <record id="action_aircraft_leg" model="ir.actions.act_window">
+        <field name="name">Flight Leg</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">aircraft.leg</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Flight Leg
+            </p>
+        </field>
+    </record>
+    <record id="action_aircraft_details" model="ir.actions.act_window">
+        <field name="name">Aircraft Details</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">aircraft.details</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Flight Details
+            </p>
+        </field>
+    </record>
+    <record id="action_aircraft_crew" model="ir.actions.act_window">
+        <field name="name">Flight Crew</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">aircraft.crew</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Flight Crew
+            </p>
+        </field>
+    </record>
+    <record id="action_aircraft_defect" model="ir.actions.act_window">
+        <field name="name">Aircraft Defect</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">aircraft.defect</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Aircraft Defect
+            </p>
+        </field>
+    </record>
+    <record id="action_aircraft_engine_usage" model="ir.actions.act_window">
+        <field name="name">Engine Usage</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">aircraft.engine.usage</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Engine Usage
+            </p>
+        </field>
+    </record>
+    <record id="action_aircraft_leg_manifest" model="ir.actions.act_window">
+        <field name="name">Manifest</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">aircraft.leg.manifest</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Manifest
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_aircraft_root"
+     name="AIRCRAFT MANAGEMENT"
+    />
+
+    <menuitem id="menu_aircraft_configuration"
+        parent ="menu_aircraft_root"
+        name="Configuration"
+    />
+
+    <menuitem 
+        id ="menu_fuel_intake"
+        name="Fuel Intake"
+        parent ="menu_aircraft_root"
+        action = "action_fuel_intake"
+        sequence="1"
+    />
+    <menuitem 
+        id ="menu_technical_log"
+        name="Technical Log"
+        parent ="menu_aircraft_root"
+        sequence="2"
+    />
+    <menuitem 
+        id ="menu_technical_log_sub"
+        name="Technical Log"
+        parent ="menu_technical_log"
+        action = "action_aircraft_technical_log"
+        sequence="1"
+    />
+    <menuitem 
+        id ="menu_aircraft_leg_sub"
+        name="Flight Leg"
+        parent ="menu_technical_log"
+        action = "action_aircraft_leg"
+        sequence="2"
+    />
+    <menuitem 
+        id ="menu_aircraft_details_sub"
+        name="Aircraft Details"
+        parent ="menu_aircraft_configuration"
+        action = "action_aircraft_details"
+        sequence="1"
+    />
+    <menuitem 
+        id ="menu_aircraft_crew_sub"
+        name="Flight Crew"
+        parent ="menu_technical_log"
+        action = "action_aircraft_crew"
+        sequence="4"
+    />
+    <menuitem 
+        id ="menu_aircraft_defect_sub"
+        name="Aircraft Defect"
+        parent ="menu_aircraft_configuration"
+        action = "action_aircraft_defect"
+        sequence="2"
+    />
+    <menuitem 
+        id ="menu_aircraft_engine_usage_sub"
+        name="Engine Usage"
+        parent ="menu_technical_log"
+        action = "action_aircraft_engine_usage"
+        sequence="6"
+    />
+    <menuitem 
+        id ="menu_aircraft_leg_manifest_sub"
+        name="Flight Manifest"
+        parent ="menu_technical_log"
+        action = "action_aircraft_leg_manifest"
+        sequence="7"
+    />
+</odoo>
